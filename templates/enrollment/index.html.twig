@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Matrículas | LearnHub{% endblock %}
+
+{% block body %}
+
+    <h1>Matrículas</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Alumno/a</th>
+            <th>Email</th>
+            <th>Curso</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for enrollment in enrollments %}
+
+            <tr {% if enrollment.status === 'Cancelada' %}class="cancelled"{% endif %}>
+
+                <td>{{ enrollment.studentName }}</td>
+                <td>{{ enrollment.studentEmail }}</td>
+                <td>{{ enrollment.course.title }}</td>
+                <td>{{ enrollment.status }}</td>
+
+                <td>
+                    <a href="{{ path('app_enrollment_show', {'id': enrollment.id}) }}">
+                        Ver
+                    </a>
+
+                    {% if app.user %}
+                        <a href="{{ path('app_enrollment_edit', {'id': enrollment.id}) }}">
+                            Editar
+                        </a>
+                    {% endif %}
+                </td>
+
+            </tr>
+
+        {% else %}
+
+            <tr>
+                <td colspan="5">No hay matrículas.</td>
+            </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a class="create-button" href="{{ path('app_enrollment_new') }}">
+        Nueva matrícula
+    </a>
+
+{% endblock %}

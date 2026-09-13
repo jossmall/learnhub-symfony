@@ -1,0 +1,81 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LearnHub{% endblock %}
+
+{% block body %}
+
+    <div class="example-wrapper">
+
+        <h1>{{ message }}</h1>
+
+        <p>Consulta los cursos disponibles y filtra por nivel.</p>
+
+        <div class="stats">
+            <div class="stat">
+                <span>Cursos</span>
+                <strong>{{ total_courses }}</strong>
+            </div>
+
+            <div class="stat">
+                <span>Matrículas</span>
+                <strong>{{ total_enrollments }}</strong>
+            </div>
+
+            <div class="stat">
+                <span>Confirmadas</span>
+                <strong>{{ total_enrollments_confirmed }}</strong>
+            </div>
+        </div>
+
+        <div class="filters">
+            <a href="{{ path('app_home') }}">Todos</a>
+            <a href="{{ path('app_home', {'nivel': 'Basico'}) }}">Básico</a>
+            <a href="{{ path('app_home', {'nivel': 'Medio'}) }}">Medio</a>
+            <a href="{{ path('app_home', {'nivel': 'Avanzado'}) }}">Avanzado</a>
+        </div>
+
+        <h1>Cursos</h1>
+
+        <div class="courses">
+
+            {% for course in courses %}
+
+                <div class="course-card">
+
+                    <img src="{{ course.image }}" alt="{{ course.title }}">
+
+                    <div class="course-info">
+
+                        <h2>{{ course.title }}</h2>
+
+                        <p>
+                            <strong>Profesor:</strong>
+                            {{ course.teacher }}
+                        </p>
+
+                        <p>
+                            <strong>Categoría:</strong>
+                            {{ course.category.name }}
+                        </p>
+
+                        <p>
+                            <strong>Nivel:</strong>
+                            {{ course.level }}
+                        </p>
+
+                        <a class="detail-button"
+                           href="{{ path('course_detail', {'slug': course.slug}) }}">
+                            Ver detalle
+                        </a>
+
+                    </div>
+
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+{% endblock %}

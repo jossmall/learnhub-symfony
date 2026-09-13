@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Editar matrícula | LearnHub{% endblock %}
+
+{% block body %}
+
+    <h1>Editar matrícula</h1>
+
+    {{ include('enrollment/_form.html.twig', {'button_label': 'Actualizar'}) }}
+
+    <a class="back-link" href="{{ path('app_enrollment_index') }}">
+        Volver a matrículas
+    </a>
+
+    {{ include('enrollment/_delete_form.html.twig') }}
+
+{% endblock %}

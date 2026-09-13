@@ -1,0 +1,6 @@
+<form method="post" action="{{ path('app_enrollment_delete', {'id': enrollment.id}) }}" onsubmit="return confirm('¿Seguro que quieres eliminar esta matrícula?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ enrollment.id) }}">
+    {% if app.user %}
+    <button class="btn">Eliminar</button>
+    {% endif %}
+</form>

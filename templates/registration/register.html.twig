@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registro | LearnHub{% endblock %}
+
+{% block body %}
+
+    <h1>Registro</h1>
+
+    <p>Crea una cuenta para acceder a LearnHub.</p>
+
+    {{ form_errors(registrationForm) }}
+
+    {{ form_start(registrationForm) }}
+
+    {{ form_row(registrationForm.name) }}
+
+    {{ form_row(registrationForm.email) }}
+
+    {{ form_row(registrationForm.phone) }}
+
+    {{ form_row(registrationForm.plainPassword, {
+        label: 'Contraseña'
+    }) }}
+
+    <button type="submit" class="btn">
+        Registrarse
+    </button>
+
+    {{ form_end(registrationForm) }}
+
+    <a class="back-link" href="{{ path('app_home') }}">
+        Volver al inicio
+    </a>
+
+{% endblock %}

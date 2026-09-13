@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ course.title }} | LearnHub{% endblock %}
+
+{% block body %}
+
+    <div class="course-detail">
+
+        <a class="back-link" href="{{ path('app_home') }}">Volver a cursos</a>
+
+        <h1>{{ course.title }}</h1>
+
+        <img src="{{ course.image }}" alt="{{ course.title }}">
+
+        <div class="course-detail-info">
+            <p>
+                <strong>Profesor:</strong>
+                {{ course.teacher }}
+            </p>
+
+            <p>
+                <strong>Categoría:</strong>
+                {{ course.category.name }}
+            </p>
+
+            <p>
+                <strong>Nivel:</strong>
+                {{ course.level }}
+            </p>
+
+            <h2>Descripción</h2>
+
+            <p>{{ course.description }}</p>
+        </div>
+
+    </div>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nueva matrícula | LearnHub{% endblock %}
+
+{% block body %}
+
+    <h1>Nueva matrícula</h1>
+
+    <p>Completa los datos para registrar una nueva matrícula.</p>
+
+    {{ include('enrollment/_form.html.twig') }}
+
+    <a class="back-link" href="{{ path('app_enrollment_index') }}">
+        Volver a matrículas
+    </a>
+
+{% endblock %}
