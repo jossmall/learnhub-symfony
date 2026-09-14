@@ -49,7 +49,7 @@ La colección de Bruno utilizada para probar estos endpoints está incluida en e
 Clonar el repositorio:
 
 ```bash
-  git clone URL_DEL_REPOSITORIO
+  git clone https://github.com/jossmall/learnhub-symfony.git
 ```
 
 Instalar las dependencias:
