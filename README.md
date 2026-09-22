@@ -90,8 +90,8 @@ Iniciar el servidor:
 
 ### Detalle de un curso
 
-![Detalle de un curso](screenshots/course-detail.png)
+![Detalle de un curso](screenshots/enrollments.png)
 
 ### Gestión de matrículas
 
-![Gestión de matrículas](screenshots/enrollments.png)
+![Gestión de matrículas](screenshots/course-detail.png)
